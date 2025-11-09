@@ -583,6 +583,85 @@ async function KV(request, env, txt = 'ADD.txt') {
 							transform: translateY(-2px);
 						}
 						
+						.main-subscription-box {
+							background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+							padding: 30px;
+							border-radius: 16px;
+							border: 2px solid #667eea40;
+							text-align: center;
+							position: relative;
+							overflow: hidden;
+						}
+						
+						.main-subscription-box::before {
+							content: '';
+							position: absolute;
+							top: -50%;
+							right: -50%;
+							width: 200%;
+							height: 200%;
+							background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+							animation: pulse 3s ease-in-out infinite;
+						}
+						
+						@keyframes pulse {
+							0%, 100% {
+								transform: scale(1);
+								opacity: 1;
+							}
+							50% {
+								transform: scale(1.1);
+								opacity: 0.8;
+							}
+						}
+						
+						.link-box {
+							background: white;
+							padding: 18px;
+							border-radius: 10px;
+							margin: 20px 0;
+							box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+							transition: all 0.3s ease;
+							position: relative;
+							z-index: 1;
+						}
+						
+						.link-box:hover {
+							transform: translateY(-3px);
+							box-shadow: 0 6px 16px rgba(102, 126, 234, 0.25);
+						}
+						
+						.client-badges {
+							display: flex;
+							flex-wrap: wrap;
+							gap: 10px;
+							justify-content: center;
+							margin-top: 25px;
+							padding: 20px;
+							background: white;
+							border-radius: 10px;
+							position: relative;
+							z-index: 1;
+						}
+						
+						.client-badge {
+							padding: 8px 16px;
+							background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
+							color: #667eea;
+							border-radius: 25px;
+							font-size: 13px;
+							font-weight: 600;
+							transition: all 0.3s ease;
+							border: 1px solid #667eea30;
+						}
+						
+						.client-badge:hover {
+							background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+							color: white;
+							transform: translateY(-2px);
+							box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+						}
+						
 						.subscription-label {
 							font-weight: 600;
 							color: #667eea;
@@ -611,17 +690,32 @@ async function KV(request, env, txt = 'ADD.txt') {
 						}
 						
 						.qrcode-container {
-							display: flex;
-							justify-content: center;
-							margin: 15px 0;
-							padding: 15px;
-							background: white;
-							border-radius: 8px;
 							display: none;
+							justify-content: center;
+							align-items: center;
+							margin: 20px 0 0 0;
+							padding: 20px;
+							background: white;
+							border-radius: 12px;
+							box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+							position: relative;
+							z-index: 1;
 						}
 						
 						.qrcode-container.active {
 							display: flex;
+							animation: fadeInScale 0.3s ease;
+						}
+						
+						@keyframes fadeInScale {
+							from {
+								opacity: 0;
+								transform: scale(0.9);
+							}
+							to {
+								opacity: 1;
+								transform: scale(1);
+							}
 						}
 						
 						.editor-container {
@@ -862,16 +956,11 @@ async function KV(request, env, txt = 'ADD.txt') {
 							<div class="info-box-icon">💡</div>
 							<div>
 								<strong>使用说明</strong><br>
-								<span style="color: #666; font-size: 13px;">点击下方订阅链接可自动复制到剪贴板，并显示二维码供扫描使用</span>
+								<span style="color: #666; font-size: 13px;">自适应订阅会根据您的客户端自动选择最合适的格式，兼容所有主流代理工具</span>
 							</div>
 						</div>
 						
 						<div class="stats">
-							<div class="stat-card">
-								<div class="stat-icon">📱</div>
-								<div class="stat-label">订阅类型</div>
-								<div class="stat-value">6种</div>
-							</div>
 							<div class="stat-card">
 								<div class="stat-icon">🔄</div>
 								<div class="stat-label">更新时间</div>
@@ -882,48 +971,44 @@ async function KV(request, env, txt = 'ADD.txt') {
 								<div class="stat-label">当前域名</div>
 								<div class="stat-value" style="font-size: 14px; word-break: break-all;">${url.hostname}</div>
 							</div>
+							<div class="stat-card">
+								<div class="stat-icon">✨</div>
+								<div class="stat-label">订阅模式</div>
+								<div class="stat-value">自适应</div>
+							</div>
 						</div>
 						
 						<div class="section">
-							<div class="section-title">
-								📱 订阅地址
-								<button onclick="copyAllLinks()" style="margin-left: auto; padding: 6px 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">📋 复制全部</button>
-							</div>
+							<div class="section-title">📱 订阅地址</div>
 							
-							<div class="subscription-item">
-								<div class="subscription-label">🔄 自适应订阅</div>
-								<a href="javascript:void(0)" onclick="copyToClipboard('https://${url.hostname}/${mytoken}','qrcode_0')" class="subscription-link">https://${url.hostname}/${mytoken}</a>
-								<div id="qrcode_0" class="qrcode-container"></div>
-							</div>
-							
-							<div class="subscription-item">
-								<div class="subscription-label">📋 Base64订阅</div>
-								<a href="javascript:void(0)" onclick="copyToClipboard('https://${url.hostname}/${mytoken}?b64','qrcode_1')" class="subscription-link">https://${url.hostname}/${mytoken}?b64</a>
-								<div id="qrcode_1" class="qrcode-container"></div>
-							</div>
-							
-							<div class="subscription-item">
-								<div class="subscription-label">⚔️ Clash订阅</div>
-								<a href="javascript:void(0)" onclick="copyToClipboard('https://${url.hostname}/${mytoken}?clash','qrcode_2')" class="subscription-link">https://${url.hostname}/${mytoken}?clash</a>
-								<div id="qrcode_2" class="qrcode-container"></div>
-							</div>
-							
-							<div class="subscription-item">
-								<div class="subscription-label">📦 Singbox订阅</div>
-								<a href="javascript:void(0)" onclick="copyToClipboard('https://${url.hostname}/${mytoken}?sb','qrcode_3')" class="subscription-link">https://${url.hostname}/${mytoken}?sb</a>
-								<div id="qrcode_3" class="qrcode-container"></div>
-							</div>
-							
-							<div class="subscription-item">
-								<div class="subscription-label">🌊 Surge订阅</div>
-								<a href="javascript:void(0)" onclick="copyToClipboard('https://${url.hostname}/${mytoken}?surge','qrcode_4')" class="subscription-link">https://${url.hostname}/${mytoken}?surge</a>
-								<div id="qrcode_4" class="qrcode-container"></div>
-							</div>
-							
-							<div class="subscription-item">
-								<div class="subscription-label">🎈 Loon订阅</div>
-								<a href="javascript:void(0)" onclick="copyToClipboard('https://${url.hostname}/${mytoken}?loon','qrcode_5')" class="subscription-link">https://${url.hostname}/${mytoken}?loon</a>
-								<div id="qrcode_5" class="qrcode-container"></div>
+							<div class="main-subscription-box">
+								<div style="font-size: 56px; margin-bottom: 10px; position: relative; z-index: 1;">✨</div>
+								<h2 style="font-size: 24px; font-weight: 700; color: #333; margin-bottom: 8px; position: relative; z-index: 1;">自适应订阅</h2>
+								<p style="color: #666; font-size: 14px; margin-bottom: 0; position: relative; z-index: 1;">智能识别客户端，自动适配最佳订阅格式</p>
+								
+								<div class="link-box">
+									<a href="javascript:void(0)" onclick="copyToClipboard('https://${url.hostname}/${mytoken}','qrcode_0')" class="subscription-link" style="font-size: 15px; font-weight: 600; word-break: break-all;">
+										https://${url.hostname}/${mytoken}
+									</a>
+								</div>
+								
+								<button onclick="copyToClipboard('https://${url.hostname}/${mytoken}','qrcode_0')" class="save-btn" style="margin: 0 auto;">
+									📋 复制订阅链接
+								</button>
+								
+								<div id="qrcode_0" class="qrcode-container" style="margin-top: 20px;"></div>
+								
+								<div class="client-badges">
+									<div style="width: 100%; text-align: center; font-weight: 600; color: #667eea; margin-bottom: 10px; font-size: 14px;">🎯 兼容所有主流客户端</div>
+									<span class="client-badge">Clash</span>
+									<span class="client-badge">Surge</span>
+									<span class="client-badge">Singbox</span>
+									<span class="client-badge">Loon</span>
+									<span class="client-badge">QuantumultX</span>
+									<span class="client-badge">V2rayN</span>
+									<span class="client-badge">Shadowrocket</span>
+									<span class="client-badge">Stash</span>
+								</div>
 							</div>
 						</div>
 						
@@ -974,28 +1059,6 @@ async function KV(request, env, txt = 'ADD.txt') {
 						</div>
 					</div>
 					<script>
-					function copyAllLinks() {
-						const allLinks = [
-							'自适应订阅: https://${url.hostname}/${mytoken}',
-							'Base64订阅: https://${url.hostname}/${mytoken}?b64',
-							'Clash订阅: https://${url.hostname}/${mytoken}?clash',
-							'Singbox订阅: https://${url.hostname}/${mytoken}?sb',
-							'Surge订阅: https://${url.hostname}/${mytoken}?surge',
-							'Loon订阅: https://${url.hostname}/${mytoken}?loon'
-						].join('\\n\\n');
-						
-						navigator.clipboard.writeText(allLinks).then(() => {
-							const toast = document.createElement('div');
-							toast.textContent = '✓ 已复制所有订阅链接';
-							toast.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 10000; font-size: 14px; font-weight: 600;';
-							document.body.appendChild(toast);
-							setTimeout(() => toast.remove(), 2000);
-						}).catch(err => {
-							console.error('复制失败:', err);
-							alert('复制失败，请手动复制');
-						});
-					}
-					
 					function copyToClipboard(text, qrcode) {
 						navigator.clipboard.writeText(text).then(() => {
 							// 创建美化的提示
