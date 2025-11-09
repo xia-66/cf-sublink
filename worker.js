@@ -166,13 +166,12 @@ export default {
 				base64Data = encodeBase64(result)
 			}
 
-			// 构建响应头对象
-			const responseHeaders = {
-				"content-type": "text/plain; charset=utf-8",
-				"Profile-Update-Interval": `${SUBUpdateTime}`,
-				"Profile-web-page-url": request.url.includes('?') ? request.url.split('?')[0] : request.url,
-				//"Subscription-Userinfo": `upload=${UD}; download=${UD}; total=${total}; expire=${expire}`,
-			};
+		// 构建响应头对象
+		const responseHeaders = {
+			"content-type": "text/plain; charset=utf-8",
+			"Profile-Update-Interval": `${SUBUpdateTime}`,
+			//"Subscription-Userinfo": `upload=${UD}; download=${UD}; total=${total}; expire=${expire}`,
+		};
 
 			if (订阅格式 == 'base64' || token == fakeToken) {
 				return new Response(base64Data, { headers: responseHeaders });
