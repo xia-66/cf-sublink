@@ -503,269 +503,200 @@ async function KV(request, env, txt = 'ADD.txt') {
 						}
 						
 						body {
-							font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-							background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+							font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', Roboto, 'Helvetica Neue', Arial, sans-serif;
+							background: #f5f7fa;
 							min-height: 100vh;
-							padding: 20px;
+							padding: 24px;
 							font-size: 14px;
 							line-height: 1.6;
+							color: #2c3e50;
 						}
 						
 						.container {
-							max-width: 1200px;
+							max-width: 960px;
 							margin: 0 auto;
-							background: rgba(255, 255, 255, 0.98);
-							border-radius: 20px;
-							box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+							background: #ffffff;
+							border-radius: 16px;
+							box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 							overflow: hidden;
 						}
 						
 						.header {
-							background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-							color: white;
-							padding: 30px;
+							background: #ffffff;
+							border-bottom: 1px solid #e8eaed;
+							padding: 32px 32px 24px;
 							text-align: center;
 						}
 						
 						.header h1 {
-							font-size: 28px;
+							font-size: 24px;
 							font-weight: 600;
-							margin-bottom: 10px;
-							text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+							color: #2c3e50;
+							margin-bottom: 8px;
+							letter-spacing: -0.5px;
 						}
 						
 						.header p {
-							opacity: 0.9;
+							color: #6c757d;
 							font-size: 14px;
 						}
 						
 						.content {
-							padding: 30px;
+							padding: 32px;
 						}
 						
 						.section {
-							margin-bottom: 30px;
-							padding: 25px;
-							background: #f8f9fa;
-							border-radius: 12px;
-							border-left: 4px solid #667eea;
+							margin-bottom: 24px;
+							padding: 0;
 						}
 						
 						.section-title {
-							font-size: 18px;
+							font-size: 16px;
 							font-weight: 600;
-							color: #333;
-							margin-bottom: 20px;
-							display: flex;
-							align-items: center;
-							gap: 10px;
-						}
-						
-						.section-title::before {
-							content: '';
-							width: 4px;
-							height: 20px;
-							background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-							border-radius: 2px;
-						}
-						
-						.subscription-item {
-							background: white;
-							padding: 15px;
-							margin-bottom: 15px;
-							border-radius: 8px;
-							box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-							transition: all 0.3s ease;
-						}
-						
-						.subscription-item:hover {
-							box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-							transform: translateY(-2px);
+							color: #2c3e50;
+							margin-bottom: 16px;
+							padding-bottom: 8px;
+							border-bottom: 2px solid #f0f2f5;
 						}
 						
 						.main-subscription-box {
-							background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-							padding: 30px;
-							border-radius: 16px;
-							border: 2px solid #667eea40;
+							background: #f8f9fb;
+							padding: 24px;
+							border-radius: 12px;
+							border: 1px solid #e8eaed;
 							text-align: center;
-							position: relative;
-							overflow: hidden;
-						}
-						
-						.main-subscription-box::before {
-							content: '';
-							position: absolute;
-							top: -50%;
-							right: -50%;
-							width: 200%;
-							height: 200%;
-							background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-							animation: pulse 3s ease-in-out infinite;
-						}
-						
-						@keyframes pulse {
-							0%, 100% {
-								transform: scale(1);
-								opacity: 1;
-							}
-							50% {
-								transform: scale(1.1);
-								opacity: 0.8;
-							}
 						}
 						
 						.link-box {
-							background: white;
-							padding: 18px;
-							border-radius: 10px;
-							margin: 20px 0;
-							box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-							transition: all 0.3s ease;
-							position: relative;
-							z-index: 1;
+							background: #ffffff;
+							padding: 16px;
+							border-radius: 8px;
+							margin: 16px 0;
+							border: 1px solid #e8eaed;
+							transition: all 0.2s ease;
 						}
 						
 						.link-box:hover {
-							transform: translateY(-3px);
-							box-shadow: 0 6px 16px rgba(102, 126, 234, 0.25);
+							border-color: #5b7aed;
+							box-shadow: 0 2px 8px rgba(91, 122, 237, 0.12);
 						}
 						
 						.client-badges {
 							display: flex;
 							flex-wrap: wrap;
-							gap: 10px;
+							gap: 8px;
 							justify-content: center;
-							margin-top: 25px;
-							padding: 20px;
-							background: white;
-							border-radius: 10px;
-							position: relative;
-							z-index: 1;
+							margin-top: 20px;
+							padding: 16px;
+							background: #ffffff;
+							border-radius: 8px;
 						}
 						
 						.client-badge {
-							padding: 8px 16px;
-							background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
-							color: #667eea;
-							border-radius: 25px;
-							font-size: 13px;
-							font-weight: 600;
-							transition: all 0.3s ease;
-							border: 1px solid #667eea30;
+							padding: 6px 12px;
+							background: #f0f2f5;
+							color: #495057;
+							border-radius: 6px;
+							font-size: 12px;
+							font-weight: 500;
+							transition: all 0.2s ease;
+							border: 1px solid transparent;
 						}
 						
 						.client-badge:hover {
-							background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+							background: #5b7aed;
 							color: white;
-							transform: translateY(-2px);
-							box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-						}
-						
-						.subscription-label {
-							font-weight: 600;
-							color: #667eea;
-							margin-bottom: 8px;
-							font-size: 13px;
-							text-transform: uppercase;
-							letter-spacing: 0.5px;
+							border-color: #5b7aed;
 						}
 						
 						.subscription-link {
-							color: #667eea;
+							color: #5b7aed;
 							text-decoration: none;
 							word-break: break-all;
 							font-size: 13px;
-							display: inline-block;
-							padding: 8px 12px;
-							background: #f0f4ff;
-							border-radius: 6px;
-							transition: all 0.3s ease;
+							font-family: 'Courier New', Consolas, monospace;
+							transition: opacity 0.2s ease;
 						}
 						
 						.subscription-link:hover {
-							background: #667eea;
-							color: white;
-							transform: scale(1.02);
+							opacity: 0.8;
 						}
 						
 						.qrcode-container {
 							display: none;
 							justify-content: center;
 							align-items: center;
-							margin: 20px 0 0 0;
-							padding: 20px;
-							background: white;
-							border-radius: 12px;
-							box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-							position: relative;
-							z-index: 1;
+							margin: 16px 0 0 0;
+							padding: 16px;
+							background: #ffffff;
+							border-radius: 8px;
+							border: 1px solid #e8eaed;
 						}
 						
 						.qrcode-container.active {
 							display: flex;
-							animation: fadeInScale 0.3s ease;
+							animation: fadeIn 0.3s ease;
 						}
 						
-						@keyframes fadeInScale {
+						@keyframes fadeIn {
 							from {
 								opacity: 0;
-								transform: scale(0.9);
 							}
 							to {
 								opacity: 1;
-								transform: scale(1);
 							}
 						}
 						
 						.editor-container {
 							width: 100%;
-							margin: 20px 0;
+							margin: 16px 0;
 						}
 						
 						.editor {
 							width: 100%;
-							height: 400px;
-							padding: 15px;
-							border: 2px solid #e0e0e0;
+							height: 360px;
+							padding: 16px;
+							border: 1px solid #e8eaed;
 							border-radius: 8px;
 							font-size: 13px;
-							font-family: 'Courier New', monospace;
+							font-family: 'Courier New', Consolas, monospace;
 							line-height: 1.6;
 							resize: vertical;
-							transition: border-color 0.3s ease;
-							background: white;
+							transition: border-color 0.2s ease;
+							background: #fafbfc;
 						}
 						
 						.editor:focus {
 							outline: none;
-							border-color: #667eea;
-							box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+							border-color: #5b7aed;
+							background: #ffffff;
 						}
 						
 						.save-container {
-							margin-top: 15px;
+							margin-top: 12px;
 							display: flex;
 							align-items: center;
-							gap: 15px;
+							gap: 12px;
 						}
 						
 						.save-btn {
-							padding: 12px 30px;
-							background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+							padding: 10px 24px;
+							background: #5b7aed;
 							color: white;
 							border: none;
 							border-radius: 8px;
 							cursor: pointer;
 							font-size: 14px;
-							font-weight: 600;
-							transition: all 0.3s ease;
-							box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+							font-weight: 500;
+							transition: all 0.2s ease;
 						}
 						
 						.save-btn:hover:not(:disabled) {
-							transform: translateY(-2px);
-							box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+							background: #4a68d9;
+						}
+						
+						.save-btn:active:not(:disabled) {
+							transform: scale(0.98);
 						}
 						
 						.save-btn:disabled {
@@ -774,173 +705,125 @@ async function KV(request, env, txt = 'ADD.txt') {
 						}
 						
 						.save-status {
-							color: #666;
+							color: #6c757d;
 							font-size: 13px;
-							padding: 8px 15px;
-							background: #f0f4ff;
+							padding: 6px 12px;
+							background: #f0f2f5;
 							border-radius: 6px;
 						}
 						
-						.toggle-btn {
-							background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-							color: white;
-							padding: 10px 20px;
-							border: none;
-							border-radius: 8px;
-							cursor: pointer;
-							font-size: 14px;
-							font-weight: 600;
-							transition: all 0.3s ease;
-							display: inline-block;
-							text-decoration: none;
-						}
-						
-						.toggle-btn:hover {
-							transform: translateY(-2px);
-							box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-						}
-						
 						.info-box {
-							background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-							padding: 15px 20px;
+							background: #f8f9fb;
+							padding: 16px;
 							border-radius: 8px;
-							border-left: 4px solid #667eea;
-							margin: 10px 0;
+							border-left: 3px solid #5b7aed;
+							margin-bottom: 20px;
 							display: flex;
-							align-items: center;
-							gap: 10px;
+							gap: 12px;
 						}
 						
 						.info-box-icon {
-							font-size: 20px;
-						}
-						
-						.copy-hint {
-							text-align: center;
-							color: #999;
-							font-size: 12px;
-							margin-top: 10px;
-							font-style: italic;
+							font-size: 18px;
+							flex-shrink: 0;
 						}
 						
 						.config-info {
-							background: white;
-							padding: 15px;
+							background: #f8f9fb;
+							padding: 14px 16px;
 							border-radius: 8px;
-							margin: 10px 0;
+							margin: 8px 0;
 						}
 						
 						.config-info strong {
-							color: #667eea;
-						}
-						
-						.divider {
-							height: 2px;
-							background: linear-gradient(90deg, transparent, #667eea, transparent);
-							margin: 20px 0;
+							color: #5b7aed;
 						}
 						
 						.footer {
-							background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-							padding: 25px 20px;
+							background: #f8f9fb;
+							padding: 20px;
 							text-align: center;
-							color: #666;
+							color: #6c757d;
 							font-size: 12px;
-							border-top: 1px solid #e0e0e0;
+							border-top: 1px solid #e8eaed;
 						}
 						
 						.footer p {
-							margin: 5px 0;
+							margin: 4px 0;
 						}
 						
 						.stats {
 							display: grid;
-							grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-							gap: 15px;
-							margin-bottom: 20px;
+							grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+							gap: 12px;
+							margin-bottom: 24px;
 						}
 						
 						.stat-card {
-							background: white;
-							padding: 20px;
-							border-radius: 10px;
-							box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+							background: #f8f9fb;
+							padding: 16px;
+							border-radius: 8px;
 							text-align: center;
-							transition: all 0.3s ease;
+							border: 1px solid #e8eaed;
+							transition: all 0.2s ease;
 						}
 						
 						.stat-card:hover {
-							transform: translateY(-3px);
-							box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+							border-color: #5b7aed;
+							box-shadow: 0 2px 8px rgba(91, 122, 237, 0.12);
 						}
 						
 						.stat-icon {
-							font-size: 32px;
-							margin-bottom: 10px;
+							font-size: 28px;
+							margin-bottom: 8px;
 						}
 						
 						.stat-label {
-							color: #999;
+							color: #6c757d;
 							font-size: 12px;
-							margin-bottom: 5px;
+							margin-bottom: 4px;
 						}
 						
 						.stat-value {
-							font-size: 18px;
+							font-size: 16px;
 							font-weight: 600;
-							color: #667eea;
+							color: #2c3e50;
 						}
 						
 						.badge {
 							display: inline-block;
 							padding: 4px 10px;
-							background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+							background: #5b7aed;
 							color: white;
-							border-radius: 20px;
-							font-size: 12px;
+							border-radius: 12px;
+							font-size: 11px;
 							font-weight: 600;
-							margin-left: 10px;
+							margin-left: 8px;
 						}
 						
 						@media (max-width: 768px) {
 							body {
-								padding: 10px;
+								padding: 12px;
 							}
 							
 							.header {
-								padding: 20px;
+								padding: 24px 20px 20px;
 							}
 							
 							.header h1 {
-								font-size: 22px;
+								font-size: 20px;
 							}
 							
 							.content {
-								padding: 15px;
-							}
-							
-							.section {
-								padding: 15px;
+								padding: 20px;
 							}
 							
 							.editor {
-								height: 300px;
+								height: 280px;
 							}
-						}
-						
-						@keyframes fadeIn {
-							from {
-								opacity: 0;
-								transform: translateY(20px);
+							
+							.stats {
+								grid-template-columns: 1fr;
 							}
-							to {
-								opacity: 1;
-								transform: translateY(0);
-							}
-						}
-						
-						.section {
-							animation: fadeIn 0.5s ease;
 						}
 					</style>
 					<script src="https://cdn.jsdelivr.net/npm/@keeex/qrcodejs-kx@1.0.2/qrcode.min.js"></script>
@@ -948,44 +831,13 @@ async function KV(request, env, txt = 'ADD.txt') {
 				<body>
 					<div class="container">
 						<div class="header">
-							<h1>🚀 ${FileName}</h1>
-							<p>订阅管理与配置中心</p>
+							<h1>${FileName}</h1>
 						</div>
 						<div class="content">
-						<div class="info-box">
-							<div class="info-box-icon">💡</div>
-							<div>
-								<strong>使用说明</strong><br>
-								<span style="color: #666; font-size: 13px;">自适应订阅会根据您的客户端自动选择最合适的格式，兼容所有主流代理工具</span>
-							</div>
-						</div>
-						
-						<div class="stats">
-							<div class="stat-card">
-								<div class="stat-icon">🔄</div>
-								<div class="stat-label">更新时间</div>
-								<div class="stat-value">${SUBUpdateTime}小时</div>
-							</div>
-							<div class="stat-card">
-								<div class="stat-icon">🌐</div>
-								<div class="stat-label">当前域名</div>
-								<div class="stat-value" style="font-size: 14px; word-break: break-all;">${url.hostname}</div>
-							</div>
-							<div class="stat-card">
-								<div class="stat-icon">✨</div>
-								<div class="stat-label">订阅模式</div>
-								<div class="stat-value">自适应</div>
-							</div>
-						</div>
-						
 						<div class="section">
 							<div class="section-title">📱 订阅地址</div>
 							
 							<div class="main-subscription-box">
-								<div style="font-size: 56px; margin-bottom: 10px; position: relative; z-index: 1;">✨</div>
-								<h2 style="font-size: 24px; font-weight: 700; color: #333; margin-bottom: 8px; position: relative; z-index: 1;">自适应订阅</h2>
-								<p style="color: #666; font-size: 14px; margin-bottom: 0; position: relative; z-index: 1;">智能识别客户端，自动适配最佳订阅格式</p>
-								
 								<div class="link-box">
 									<a href="javascript:void(0)" onclick="copyToClipboard('https://${url.hostname}/${mytoken}','qrcode_0')" class="subscription-link" style="font-size: 15px; font-weight: 600; word-break: break-all;">
 										https://${url.hostname}/${mytoken}
@@ -998,39 +850,16 @@ async function KV(request, env, txt = 'ADD.txt') {
 								
 								<div id="qrcode_0" class="qrcode-container" style="margin-top: 20px;"></div>
 								
-								<div class="client-badges">
-									<div style="width: 100%; text-align: center; font-weight: 600; color: #667eea; margin-bottom: 10px; font-size: 14px;">🎯 兼容所有主流客户端</div>
-									<span class="client-badge">Clash</span>
-									<span class="client-badge">Surge</span>
-									<span class="client-badge">Singbox</span>
-									<span class="client-badge">Loon</span>
-									<span class="client-badge">QuantumultX</span>
-									<span class="client-badge">V2rayN</span>
-									<span class="client-badge">Shadowrocket</span>
-									<span class="client-badge">Stash</span>
-								</div>
+							<div class="client-badges">
+								<span class="client-badge">Clash</span>
+								<span class="client-badge">Surge</span>
+								<span class="client-badge">Singbox</span>
+								<span class="client-badge">Loon</span>
+								<span class="client-badge">QuantumultX</span>
+								<span class="client-badge">V2rayN</span>
+								<span class="client-badge">Shadowrocket</span>
+								<span class="client-badge">Stash</span>
 							</div>
-						</div>
-						
-						<div class="section">
-							<div class="section-title">⚙️ 订阅转换配置</div>
-							<div class="config-info">
-								<div style="display: flex; align-items: center; gap: 10px;">
-									<span style="font-size: 18px;">🔧</span>
-									<div style="flex: 1;">
-										<div style="color: #999; font-size: 12px; margin-bottom: 3px;">订阅转换后端</div>
-										<strong style="color: #667eea;">${subProtocol}://${subConverter}</strong>
-									</div>
-								</div>
-							</div>
-							<div class="config-info">
-								<div style="display: flex; align-items: center; gap: 10px;">
-									<span style="font-size: 18px;">📝</span>
-									<div style="flex: 1;">
-										<div style="color: #999; font-size: 12px; margin-bottom: 3px;">订阅配置文件</div>
-										<strong style="color: #667eea; word-break: break-all; font-size: 13px;">${subConfig}</strong>
-									</div>
-								</div>
 							</div>
 						</div>
 						
@@ -1049,14 +878,6 @@ async function KV(request, env, txt = 'ADD.txt') {
 							</div>
 						</div>
 						</div>
-						<div class="footer">
-							<div style="margin-bottom: 10px;">
-								<strong style="color: #667eea;">CF-Workers-SUB</strong>
-								<span class="badge">v2.0</span>
-							</div>
-							<p style="color: #999;">Powered by Cloudflare Workers</p>
-							<p style="font-size: 11px; color: #aaa; margin-top: 10px;">UA: ${request.headers.get('User-Agent')}</p>
-						</div>
 					</div>
 					<script>
 					function copyToClipboard(text, qrcode) {
@@ -1064,7 +885,7 @@ async function KV(request, env, txt = 'ADD.txt') {
 							// 创建美化的提示
 							const toast = document.createElement('div');
 							toast.textContent = '✓ 已复制到剪贴板';
-							toast.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 10000; font-size: 14px; font-weight: 600;';
+							toast.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #5b7aed; color: white; padding: 12px 24px; border-radius: 8px; box-shadow: 0 2px 12px rgba(91, 122, 237, 0.3); z-index: 10000; font-size: 14px; font-weight: 500;';
 							document.body.appendChild(toast);
 							setTimeout(() => toast.remove(), 2000);
 						}).catch(err => {
